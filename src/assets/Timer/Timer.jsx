@@ -1,27 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 function Timer() {
-  const [count, setCount] = useState(0);
-  const timerRef = useRef(null); // Таймер үчүн useRef()
-
-  const startTimer = () => {
-    if (!timerRef.current) {
-      timerRef.current = setInterval(() => {
-        setCount((prev) => prev + 1);
-      }, 1000);
-    }
-  };
-
-  const stopTimer = () => {
-    clearInterval(timerRef.current);
-    timerRef.current = null;
-  };
-
+  const timere = useRef(0);
+  const increment = (timere.current += 1);
   return (
     <div>
-      <p>Timer: {count}</p>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
+      <h1>type:{timere.current}</h1>
+      <button onClick={increment}>kosh</button>
     </div>
   );
 }
