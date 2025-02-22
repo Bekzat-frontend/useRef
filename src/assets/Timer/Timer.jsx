@@ -2,17 +2,19 @@ import React, { useRef, useState } from "react";
 
 function Timer() {
   const [state, setState] = useState(0);
-  console.log(state, "state");
+  const [render, setRender] = useState(false); 
 
-  const interval = useRef(null);
-  console.log(interval, "interval");
+  const interval = useRef(0);
 
   const handleState = () => {
     setState(state + 1);
   };
+
   const handleInterval = () => {
     interval.current += 1;
+    setRender((prev) => !prev);
   };
+
   return (
     <div>
       <div>
