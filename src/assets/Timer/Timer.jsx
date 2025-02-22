@@ -2,7 +2,11 @@ import React, { useRef, useState } from "react";
 
 function Timer() {
   const [state, setState] = useState(0);
-  const interval = useRef(0);
+  console.log(state, "state");
+
+  const interval = useRef(null);
+  console.log(interval, "interval");
+
   const handleState = () => {
     setState(state + 1);
   };
@@ -18,8 +22,8 @@ function Timer() {
       </div>
       <div>
         <h1>Toso-2</h1>
-        <h1></h1>
-        <button></button>
+        <h1>{interval.current}</h1>
+        <button onClick={handleInterval}>+</button>
       </div>
     </div>
   );
